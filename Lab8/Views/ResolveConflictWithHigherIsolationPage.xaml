@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Lab8.Views.ResolveConflictWithHigherIsolationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.Views"
+        xmlns:viewModels="clr-namespace:Lab8.ViewModels"
+        mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewModels:ResolveConflictWithHigherIsolationViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Parcel ID" Margin="10"/>
+            <TextBox Text="{Binding ParcelId}" Margin="10"/>
+
+            <Button Content="Resolve Conflict" Command="{Binding ResolveConflictCommand}" Margin="10"/>
+
+            <TextBlock Text="Result" Margin="10"/>
+            
+            <TextBlock Text="{Binding ResultMessage}" Margin="10" Foreground="Green"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

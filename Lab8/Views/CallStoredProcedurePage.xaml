@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Lab8.Views.CallStoredProcedurePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.Views"
+        xmlns:viewModels="clr-namespace:Lab8.ViewModels"
+        mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModels:CallStoredProcedureViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Shipment ID" Margin="10"/>
+            <TextBox Text="{Binding ShipmentId}" Margin="10"/>
+
+            <Button Content="Call Stored Procedure" Command="{Binding CallStoredProcedureCommand}" Margin="10"/>
+
+            <TextBlock Text="Result" Margin="10"/>
+            <TextBlock Text="{Binding ResultMessage}" Margin="10" Foreground="Green"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
