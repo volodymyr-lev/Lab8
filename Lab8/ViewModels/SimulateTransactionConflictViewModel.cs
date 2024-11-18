@@ -28,15 +28,13 @@ namespace Lab8.ViewModels
         {
             try
             {
-                _dataService.BeginTransaction(IsolationLevel.ReadCommitted);
                 _dataService.SimulateTransactionConflict(ParcelId);
-                ResultMessage = "Conflict simulated successfully!";
-                _dataService.CommitTransaction();
+                ResultMessage = "Conflict did not simulated successfully!";
+                
             }
             catch (Exception ex)
             {
-                _dataService.RollbackTransaction();
-                ResultMessage = $"Error: {ex.Message}";
+                ResultMessage = $"Detected transaction conflict: {ex.Message}"; 
             }
         }
     }

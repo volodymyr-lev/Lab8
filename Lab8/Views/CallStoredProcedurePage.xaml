@@ -13,9 +13,12 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Shipment ID" Margin="10"/>
-            <TextBox Text="{Binding ShipmentId}" Margin="10"/>
+            <TextBlock Text="Parcel ID" Margin="10"/>
+            <TextBox Text="{Binding ParcelId}" Margin="10"/>
 
+            <TextBlock Text="Weight" Margin="10"/>
+            <TextBox Text="{Binding Weight}" Margin="10"/>
+            
             <Button Content="Call Stored Procedure" Command="{Binding CallStoredProcedureCommand}" Margin="10"/>
 
             <TextBlock Text="Result" Margin="10"/>

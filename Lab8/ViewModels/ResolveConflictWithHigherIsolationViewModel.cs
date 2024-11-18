@@ -28,14 +28,11 @@ namespace Lab8.ViewModels
         {
             try
             {
-                _dataService.BeginTransaction(IsolationLevel.Serializable);
                 _dataService.ResolveConflictWithHigherIsolation(ParcelId);
                 ResultMessage = "Conflict resolved successfully!";
-                _dataService.CommitTransaction();
             }
             catch (Exception ex)
             {
-                _dataService.RollbackTransaction();
                 ResultMessage = $"Error: {ex.Message}";
             }
         }

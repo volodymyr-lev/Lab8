@@ -17,18 +17,11 @@ namespace Lab8.ViewModels
 
         public ICommand GetPaginatedDataCommand { get; }
 
-        private string _nameFilter;
-        public string NameFilter
+        private int _idFilter;
+        public int IdFilter
         {
-            get => _nameFilter;
-            set => SetProperty(ref _nameFilter, value);
-        }
-
-        private string _addressFilter;
-        public string AddressFilter
-        {
-            get => _addressFilter;
-            set => SetProperty(ref _addressFilter, value);
+            get => _idFilter;
+            set => SetProperty(ref _idFilter, value);
         }
 
         private int _page;
@@ -57,7 +50,7 @@ namespace Lab8.ViewModels
             try
             {
                 _dataService.BeginTransaction(IsolationLevel.ReadCommitted);
-                Data = _dataService.GetPaginatedData(NameFilter, AddressFilter, Page, PageSize);
+                Data = _dataService.GetPaginatedData(IdFilter, Page, PageSize);
                 ResultMessage = "Data retrieved successfully!";
                 _dataService.CommitTransaction();
             }

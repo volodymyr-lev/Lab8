@@ -13,11 +13,8 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Filter by Name" Margin="10"/>
-            <TextBox Text="{Binding NameFilter}" Margin="10"/>
-
-            <TextBlock Text="Filter by Address" Margin="10"/>
-            <TextBox Text="{Binding AddressFilter}" Margin="10"/>
+            <TextBlock Text="Filter by id (greater)" Margin="10"/>
+            <TextBox Text="{Binding IdFilter}" Margin="10"/>
 
             <TextBlock Text="Page" Margin="10"/>
             <TextBox Text="{Binding Page}" Margin="10"/>

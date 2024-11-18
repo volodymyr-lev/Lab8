@@ -17,11 +17,17 @@ namespace Lab8.ViewModels
 
         public ICommand CallStoredProcedureCommand { get; }
 
-        private int _shipmentId;
-        public int ShipmentId
+        private int _parcelId;
+        public int ParcelId
         {
-            get => _shipmentId;
-            set => SetProperty(ref _shipmentId, value);
+            get => _parcelId;
+            set => SetProperty(ref _parcelId, value);
+        }
+        private double _weight;
+        public double Weight
+        {
+            get=> _weight;
+            set=> SetProperty(ref _weight, value);
         }
 
         private void ExecuteCallStoredProcedure()
@@ -29,7 +35,7 @@ namespace Lab8.ViewModels
             try
             {
                 _dataService.BeginTransaction(IsolationLevel.ReadCommitted);
-                _dataService.CallStoredProcedure(ShipmentId);
+                _dataService.CallStoredProcedure(ParcelId, Weight);
                 ResultMessage = "Procedure called successfully!";
                 _dataService.CommitTransaction();
             }
